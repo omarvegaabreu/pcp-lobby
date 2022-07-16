@@ -1,10 +1,11 @@
 import React from "react";
+import SearchBar from "./components/search-bar/SearchBar";
+import CardList from "./components/card-list/Cardlist";
 
 import "./App.css";
 
 class App extends React.Component {
   constructor() {
-    console.log("constructor");
     super();
 
     this.state = {
@@ -21,7 +22,6 @@ class App extends React.Component {
           return { patients: patientsData };
         })
       );
-    console.log("componentDidMount");
   }
 
   onInputChange = (event) => {
@@ -40,19 +40,10 @@ class App extends React.Component {
       return patient.name.toLowerCase().includes(searchField);
     });
 
-    console.log(filteredPatient);
-    console.log("render");
     return (
       <div className="App">
-        <input
-          type="text"
-          className="patients"
-          placeholder="Search patients"
-          onChange={onInputChange}
-        />
-        {filteredPatient.map((search) => {
-          return <h1 key={search.id}>{search.name}</h1>;
-        })}
+        <SearchBar onInputChangeHandler={onInputChange} />
+        <CardList filteredPatient={filteredPatient} />
       </div>
     );
   }
