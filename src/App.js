@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "./components/search-bar/SearchBar";
-import CardList from "./components/card-list/Cardlist";
+import SearchBar from "./components/search-bar/SearchBar.Component";
+import CardList from "./components/card-list/CardList.Component";
 
 import "./App.css";
 
