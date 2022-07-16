@@ -42,7 +42,12 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SearchBar onInputChangeHandler={onInputChange} />
+        <SearchBar
+          className="search-box"
+          onInputChangeHandler={onInputChange}
+          placeholder="Search Patients"
+          type="text"
+        />
         <CardList filteredPatient={filteredPatient} />
       </div>
     );

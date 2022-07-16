@@ -4,9 +4,9 @@ class SearchBar extends React.Component {
   render() {
     return (
       <input
-        type="text"
-        className="patients"
-        placeholder="Search patients"
+        type={this.props.type}
+        className={this.props.className}
+        placeholder={this.props.placeholder}
         onChange={this.props.onInputChangeHandler}
       />
     );
