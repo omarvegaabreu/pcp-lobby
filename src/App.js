@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./components/search-bar/SearchBar.Component";
 import CardList from "./components/card-list/CardList.Component";
+import axios from "axios";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     this.state = {
       patients: [],
       searchField: [],
+      patientPicture: [],
     };
   }
 
@@ -22,6 +24,15 @@ class App extends React.Component {
           return { patients: patientsData };
         })
       );
+
+    let picture = axios
+      .get("https://api.unsplash.com/photos/random", {
+        params: { query: "face", orientation: "landscape" },
+        headers: {
+          Authorization: "Client-ID ",
+        },
+      })
+      .then((response) => console.log(response.data));
   }
 
   onInputChange = (event) => {
