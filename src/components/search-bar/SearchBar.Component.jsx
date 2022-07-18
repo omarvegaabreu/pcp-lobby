@@ -1,11 +1,11 @@
 import React from "react";
-
+import { Input } from "semantic-ui-react";
 // import "./search-bar-styless.css";
 
 class SearchBar extends React.Component {
   render() {
     return (
-      <input
+      <Input
         type={this.props.type}
         className={`search-bar ${this.props.className}`}
         placeholder={this.props.placeholder}

@@ -25,14 +25,21 @@ class App extends React.Component {
         })
       );
 
-    let picture = axios
-      .get("https://api.unsplash.com/photos/random", {
-        params: { query: "face", orientation: "landscape" },
-        headers: {
-          Authorization: "Client-ID ",
-        },
-      })
-      .then((response) => console.log(response.data));
+    const getPic = async () => {
+      const response = await axios.get(
+        "https://api.unsplash.com/search/photos",
+        {
+          params: { query: "face" },
+          headers: {
+            Authorization: `Client-ID LigSuTic7DrA1hWwdvZ2pBp8rSYFhQ7OlOzljU5GKZU`,
+          },
+        }
+      );
+
+      const responseData = response.data.results.map((res) => res.urls.small);
+      this.setState({ patientPicture: responseData });
+    };
+    getPic();
   }
 
   onInputChange = (event) => {
@@ -44,7 +51,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { patients, searchField } = this.state;
+    const { patients, searchField, patientPicture } = this.state;
     const { onInputChange } = this;
 
     const filteredPatient = patients.filter((patient) => {
@@ -59,7 +66,11 @@ class App extends React.Component {
           placeholder="Search Patients"
           type="text"
         />
-        <CardList filteredPatient={filteredPatient} />
+
+        <CardList
+          filteredPatient={filteredPatient}
+          patientPicture={patientPicture}
+        />
       </div>
     );
   }
