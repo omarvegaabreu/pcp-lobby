@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image, Grid, CardGroup } from "semantic-ui-react";
+import { Card, Image, CardGroup } from "semantic-ui-react";
 import "./card-list-component.css";
 
 class CardList extends React.Component {
@@ -32,18 +32,3 @@ class CardList extends React.Component {
 }
 
 export default CardList;
-
-// filteredPatient.map((search) => {
-//   const { name, id, email } = search;
-//   return (
-//     <Card key={id} className="card-container">
-//       <Card className="card-container">
-//         <Image src={patientPicture} wrapped ui={false} />
-//         <Card.Content>
-//           <Card.Header>{name}</Card.Header>
-//           <Card.Header>{email}</Card.Header>
-//         </Card.Content>
-//       </Card>
-//     </Card>
-//   );
-// });
