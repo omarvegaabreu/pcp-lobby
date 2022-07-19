@@ -12,14 +12,7 @@ class CardList extends React.Component {
       return (
         <Card key={Math.random()} className="card-list">
           <Card>
-            <Image
-              src={items[1]}
-              wrapped
-              ui={false}
-              size="tiny"
-              width={250}
-              height={250}
-            />
+            <Image src={items[1]} wrapped ui={false} />
             <Card.Content>
               <Card.Header>{items[0].name}</Card.Header>
             </Card.Content>
