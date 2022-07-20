@@ -29,7 +29,7 @@ class App extends React.Component {
       const response = await axios.get(
         "https://api.unsplash.com/search/photos",
         {
-          params: { query: "face" },
+          params: { query: "face", orientation: "portrait" },
           headers: {
             Authorization: `Client-ID ${process.env.REACT_APP_UPSPLASH_API_KEY} `,
           },
@@ -62,7 +62,7 @@ class App extends React.Component {
       <div className="App">
         <SearchBar
           className="search-box"
-          onInputChangeHandler={onInputChange}
+          // onInputChangeHandler={onInputChange}
           placeholder="Search Patients"
           type="text"
         />
