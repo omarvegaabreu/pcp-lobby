@@ -31,7 +31,7 @@ class App extends React.Component {
         {
           params: { query: "face" },
           headers: {
-            Authorization: `Client-ID LigSuTic7DrA1hWwdvZ2pBp8rSYFhQ7OlOzljU5GKZU`,
+            Authorization: `Client-ID ${process.env.REACT_APP_UPSPLASH_API_KEY} `,
           },
         }
       );
